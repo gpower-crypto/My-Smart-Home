@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Delete Device page</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="text/javascript" src="/generalFormValidation.js"></script>
+</head>
+
+<body>
+    <%- include('navbar'); -%>
+    <h2>Here, you can delete any of your selected devices</h2>
+    <form name="form" action="/deviceDeleted" method="POST" onsubmit="return validateName()">
+
+        <!-- Display the names of devices in a dropdown menu -->
+        <label for="type">Name of Device:</label>
+        <select name="name" id="device-option">
+            <option disabled selected value> -- select an option -- </option>
+            <!-- loop through the list of devices -->
+            <% listOfDevices.forEach(function(device){ %>
+                <option value="<%= device.name %>"><%= device.name %></option>
+            <% }); %>
+        </select>
+        <br><br>
+
+        <!-- submit button to delete the device -->
+        <input type="submit" value="Delete Device">
+    </form>
+</body>
+
+</html>

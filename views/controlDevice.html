@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Device Control page</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- general form input validation -->
+    <script type="text/javascript" src="/generalFormValidation.js"></script>
+    <!-- specific form input validation for control device page -->
+    <script type="text/javascript" src="/controlDeviceFormValidation.js"></script>
+</head>
+
+<body>
+    <%- include('navbar'); -%>
+    <h2>Here, you can change the settings of your selected devices</h2>
+
+    <!-- on submitting the form, the onsubmit attribute will call the validateInputForm function to validate the form inputs -->
+    <form name="form" action="/deviceUpdated" method="POST" onsubmit="return validateInputForm()">
+        
+        <!-- Display the names of devices in a dropdown menu -->
+        <label for="type">Name of Device:</label>
+        <select name="name" id="device-option" onchange="handleSelection(getDeviceTypeValue(value))">
+            <option disabled selected value> -- select an option -- </option>
+            <% listOfDevices.forEach(function(device){ %>
+                <option value="<%= device.name %>,<%= device.type %>"><%= device.name %></option>
+            <% }); %>
+        </select>
+
+        <!-- Display the on and off option as radio buttons -->
+        <div class="hide" id="div1">
+            <label for="status">Update Device Status:</label> <br>
+            <input type="radio" name="status" value="on">
+            <label for="on">On</label><br>
+            <input type="radio" name="status" value="off">
+            <label for="off">Off</label><br>
+        </div>
+
+        <!-- Display the open and closed option as radio buttons -->
+        <div class="hide" id="div2">
+            <label for="state">Update Device State:</label> <br>
+            <input type="radio" name="state" value="open">
+            <label for="open">Open</label><br>
+            <input type="radio" name="state" value="closed">
+            <label for="closed">Closed</label><br>
+        </div>
+
+        <!-- Display the cooling device temperature input -->
+        <div class="hide" id="div3">
+            <label for="temperature">Update Device Temperature (between -10 and 25<sup>o</sup>C):</label>
+            <input type="number" name="coolTemp" min="-10" max="25">
+        </div>
+
+        <!-- Display the heating device temperature input -->
+        <div class="hide" id="div4">
+            <label for="temperature">Update Device Temperature (between 30 and 200<sup>o</sup>C):</label>
+            <input type="number" name="heatTemp" min="30" max="200">
+        </div>
+
+        <!-- Display the volume input -->
+        <div class="hide" id="div5">
+            <label for="volume">Device Volume (between 0 and 25):</label>
+            <input type="number" name="volume" min="0" max="25">
+        </div>
+        <br><br>
+
+        <!-- submit button to update the device -->
+        <input type="submit" value="Submit"> 
+    </form>
+</body>
+
+</html>

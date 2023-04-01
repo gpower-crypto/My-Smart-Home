@@ -1,0 +1,72 @@
+/* Home Page Heading styling */
+
+.header {
+  text-align: center;
+}
+
+/* Navbar CSS from w3schools.com, link here https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_gray********/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: var(--bs-font-sans-serif);
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #04AA6D;
+}
+
+/* *********************************** */
+
+/* Default Device Settings (on/off, open/closed, etc.) Styling */
+
+.hide {
+  display: none;
+  margin-top: 15px;
+}
+
+/* Table Styling from w3schools link here https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+
+#devices {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#devices td, #devices th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#devices tr:nth-child(even){background-color: #f2f2f2;}
+
+#devices tr:hover {background-color: #ddd;}
+
+#devices th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

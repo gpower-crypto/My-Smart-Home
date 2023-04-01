@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Device Status</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <%- include('navbar'); -%>
+    <h1> This is Device Status Page </h1>
+    <h3>You can view your device status here </h3>
+    <table id="devices">
+        <thead>
+            <tr>
+                <th>Device Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <!-- display the appropriate device setting type as header for the selected device -->
+                <% if (device.type == "audio-visual") { %>
+                    <th>Volume</th>
+                <% } if (device.type == "heating" || device.type == "cooling") { %>
+                        <th>Temperature</th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= device.name %></td>
+                <td><%= device.type %></td>
+                <td><%= device.status %></td>
+                <!-- display the appropriate device parameters for the selected device -->
+                <% if (device.type == "heating" || device.type == "cooling") { %>
+                    <td><%= device.setting %><sup>o</sup>C</td>
+                <% } if (device.type == "audio-visual") { %>
+                    <td><%= device.setting %></td>
+                <% } %>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>List webpage!</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <%- include('navbar'); -%>
+    <h1> This is Device List Page </h1>
+    <h3>You can view all your devices here </h3>
+    <table id="devices">
+        <thead>
+            <tr>
+                <th>Device Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- loop through the devices using ejs -->
+            <% listOfDevices.forEach(function(device){ %>
+            <tr>
+                <td><%= device.name %></td>
+                <td><%= device.type %></td>
+            <% }) %>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
