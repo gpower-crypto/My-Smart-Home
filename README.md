@@ -47,7 +47,7 @@ To run the MySmartHome web application locally on your machine, follow these ste
 2. Install the required dependencies:
    
    ```bash
-   git clone https://github.com/gpower-crypto/My-Smart-Home.git
+   npm install
    ```
 
 3. Start the application:
